@@ -1,0 +1,701 @@
+/* ----------------------------------------------------- */
+/* Orange Color: #e67e22; */
+/* ----------------------------------------------------- */
+
+/* ----------------------------------------------------- */
+/* BASIC SETUP */
+/* ----------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;  /*when page is less width, some text across page or x axis bled off right page*/
+}
+
+.clearfix {zoom: 1}  /* since no space btwn btm pics and 'how works section' need clear floats */
+.clearfix:after {    /* add this class to the 'ul' element will clear stuff after */
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* ----------------------------------------------------- */
+/* RESUABLE COMPONENTS */
+/* ----------------------------------------------------- */
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1%;
+}
+
+/* HEADINGS */
+
+h1,
+h2,
+h3 {    
+    font-weight: 300;
+    text-transform: uppercase;
+   
+}
+
+h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff; 
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;    
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: "";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* PARAGRAPHS NTS: line-height btwn 120 and 145%; line at most 2 alphabets width, set width to 70% so then to actually center it, use margin-left at 15% this takes 15% on each side or 30% total so then the paragraph takes up that 70% on center    */
+
+.long-copy {
+    line-height: 145%; 
+    width: 70%;
+    margin-left: 15%
+}
+
+/* to change all paragraphs under the box class...do this... */
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* ICONS */
+
+.icon-big {
+    font-size: 200%;    /* since it is a font icon, resize with this */
+    display: block;    /* forces inline break */
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.icon-small {
+    display: inline-block; /* so can now define width, then center them */
+    width: 30px;
+    text-align: center;
+    color: #e67e22;
+    font-size: 120%;    /* makes bigger;;next want to align to text next with line-ht and vert-aln */
+     margin-right: 10px; /* for space between text */
+    
+    /* secret to align text and icons */
+    line-height: 120%;
+    vertical-align: middle; /* at this point the icon sits below text baseline...sooo */
+    margin-top: -5px; /*will pull icons to top 4px */  
+}
+
+/* LINKS */
+
+a:link, 
+a:visited {
+    color: #e67e22;
+    text-decoration: none; /* removes the underline;  now we add our own orange line... */
+    padding-bottom: 1px;  /* space btwn text and the border/new underline */
+    border-bottom: 1px solid #e67e22;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent; /*use to remove border 'transparent'*/
+}
+
+/* BUTTONS */
+
+.btn:link,
+.btn:visited,
+input[type=submit]    {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;    
+    border-radius: 200px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit]  {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active  {
+    border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #cf6d17;
+    color: #fff;
+}
+
+/* ----------------------------------------------------- */
+/* HEADER */
+/* ----------------------------------------------------- */
+
+header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(#000)), url(img/hero.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), #000), url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.logo-black {
+    display: none;  /* this image will not be displayed by default, when use it in the sticky nav, we have access tho...*/
+    height: 50px;
+    width: auto;
+    float: left;
+    margin: 5px 0;
+}
+
+
+
+/* Main navi */
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 55px;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+/* Mobile navi */
+
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;  /* need to define this bc in index file when use 'a' element not followed by 'href' (href usually make pointer when hover a link) , the pointer will not appear by default...so we add it */
+    display: none; /* do this so invisible now and that we can call this menu to appear only on small/mobile screen sizes when we are in queries editing */
+}
+
+.mobile-nav-icon i {  /* all the other icons have a class used to specify them, this one is only one without it so dont need special, just use plain icon class, others get formatting from their own class call */
+    font-size: 200%;
+    color: #fff;
+}
+
+/* Sticky navi */
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;  /*   want to start at top left so set both to 0  */
+    width: 100%; 
+    background-color: rgba(255, 255, 255, 0.98);  /*   add transparency .98, almost no opacity  */    
+    -webkit-box-shadow: 0 2px 2px #efefef;    
+    box-shadow: 0 2px 2px #efefef;                    /* add shadow to white bkgrnd of sticky header values are x y blur color*/
+    z-index: 9999; /* defines the vertical stacking of elements...so when it scrolls over pictures, it is on top::9999 is highest or most on top value */
+}
+
+.sticky .main-nav {
+    margin-top: 18px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 16px 0;    /* chage distance of orange line below nav links change padding from 8px 0; to 16 */
+    color: #555;
+    
+}
+
+
+.sticky .logo {display: none;}              /* hides the white logo for sticky header and next line makes logo-black visible for sticky header */
+.sticky .logo-black {display: block;}
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------- */
+/* FEATURES */
+/* ----------------------------------------------------- */
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+/* ----------------------------------------------------- */
+/* MEALS */
+/* ----------------------------------------------------- */
+
+.section-meals {
+    padding: 0;
+}
+
+.meals-showcase {
+    list-style: none;  /* removes the bullet points of a list */
+    width: 100%;
+    
+}
+
+.meals-showcase li {
+    display: block; /* important to use */
+    float: left;    /* instaead of one after another, want side by side */
+    width: 25%;      /* since want pics 100% of width, and 4 total, each will be 25% wide */
+}
+
+.meal-photo {
+    width: 100%;   /* means has 100% width of its parent element which is "li" above;=25% */
+    margin: 0;
+    overflow: hidden;  /* fixes transform issue below */
+    background-color: #000;
+}
+
+.meal-photo img {
+    opacity: 0.7;
+    width: 100%;    /* means has 100% width of its parent element= "meal-photo" above;=25% */
+    height: auto;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15); /* will make image 115%, its actually going out of browser/container */
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+}
+
+.meal-photo img:hover {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    opacity: 1;
+}
+
+/* ----------------------------------------------------- */
+/* HOW IT WORKS */
+/* ----------------------------------------------------- */
+
+.section-steps {
+    background-color: #f4f4f4;  /* adds slight grey color, to use effect coming up */
+}
+
+.steps-box:first-child {
+    text-align: right;
+    padding-right: 3%;  /* defining in % makes page fluid instead of using rigid px */
+    margin-top: 30px;
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.works-step {
+    margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+    margin-bottom: 80px;   /* works-step default 50px below, this makes 80px below last in list */
+}
+
+.works-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    display: inline-block;   /* will make sure number doesnt force line break and sidexside w txt*/
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;   
+    
+}
+
+
+
+.btn-app:link,      /*we are adding this so that the orange underline twitter links dont put the same format here, we dont want the orange line to appear under these links */
+.btn-app:visited {
+    border: 0;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+    
+}
+
+/* ----------------------------------------------------- */
+/* CITIES */
+/* ----------------------------------------------------- */
+
+.box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;        
+}
+
+.city-future {
+    margin-bottom: 5px;
+    
+}
+
+/* ----------------------------------------------------- */
+/* TESTIMONIALS */
+/* ----------------------------------------------------- */
+
+.section-testimonials {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/back-customers.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);   /*add 80% transp. to pic overlay will look darker then. */
+    background-size: cover;   /*do with images*/
+    color: #fff;
+    background-attachment: fixed;  /*bkgrnd image stays in place and site scrolls over it effect*/
+    
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic;  /* declared this font type in the header of the html file. necessary. */
+    line-height: 145%;
+    position: relative; /* so the blockquote:before position will work (making the " formatted)  */
+    margin-top: 40px;
+}
+
+blockquote:before {
+    content: "\201c";  /* need iso in css content; https://css-tricks.com/snippets/html/glyphs/ */
+    font-size: 500%;
+    display: block;
+    position: absolute; /* to make element absolute, parent must be relative position: blockquote...  */
+    top: -5px;
+    left: -5px;   
+}
+
+cite {
+    font-size: 90%;
+    margin-top: 25px;
+    display: block; /* adds line break after text and separates picture and name from that text */    
+}
+
+cite img {
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;     /* makes name line up middle of profile pic testimonial */ 
+}
+
+/* ----------------------------------------------------- */
+/* SIGN UP */
+/* ----------------------------------------------------- */
+
+.section-plans {
+    background-color: #f4f4f4;
+}
+
+.plan-box {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%;  /* 1/2 of remaining 10% from the already taken 90%, will center it */
+    -webkit-box-shadow: 0 2px 2px #efefef;
+    box-shadow: 0 2px 2px #efefef;    /* values = (x, y, blue, color) */ 
+}
+
+.plan-box div {
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.plan-box div:first-child {
+    background-color: #fcfcfc;   /* box rounded corners are now gone; will also add box shadow on .plan-box above*/
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+    text-align: center;   /* centers sign up button */
+    border: none;
+}
+
+.plan-price {
+    font-size: 300%;
+    font-weight: 100;
+    margin-bottom: 10px;
+    color: #e67e22;
+}
+
+.plan-price span {      /* since this is child to .plan-price, %fontsize is relativ to 300% above */
+    font-size: 30%;
+    font-weight: 300;
+}
+
+.plan-price meal {
+    font-size: 80%;
+}
+
+.plan-box ul{
+    list-style: none; 
+}
+
+.plan-box ul li {
+    padding: 5px 0;
+}
+
+/* ----------------------------------------------------- */
+/* FORM */
+/* ----------------------------------------------------- */
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;    /*will center this contact form inside of its parent element;; could do margin-left15%(1/2 of 60% above)*/    
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;  /*get rid of weird border make solid gray slim instead as we did here*/
+}
+
+.textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {outline: none;}   /*this gets rid of chrome,etc default highlight box when inputing into form online*/
+
+/* ----------------------------------------------------- */
+/* FOOTER */
+/* ----------------------------------------------------- */
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+    
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+    
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 160%;    
+}
+
+.ion-ios-heart,
+.ion-ios-star,
+.ion-ios-moon,
+.ion-ios-square {
+    transistion: color 0.2s;
+}
+
+.ion-ios-heart:hover {
+    color: #3b5988;
+}
+
+.ion-ios-star:hover {
+    color: #00aced;
+}
+
+.ion-ios-moon:hover {
+    color: #dd4b39;
+}
+
+.ion-ios-square:hover {
+    color: #517fa4;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+/* ----------------------------------------------------- */
+/* ANIMATIONS */
+/* ----------------------------------------------------- */
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+    opacity: 0;    /* this makes the content invisible initially so can use the FADEIn effect in the js file = dont need for js--wp-4 because is pulsing effect */
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.js--wp-4 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.js--wp-1 .animated,
+.js--wp-2 .animated,
+.js--wp-3 .animated {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
