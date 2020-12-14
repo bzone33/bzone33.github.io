@@ -152,7 +152,7 @@ a:active {
 .btn:link,
 .btn:visited,
 input[type=submit]    {
-    display: inline-block;
+    display: inline-block;  /* normally this is an inline element, cant define padding and margin; this allows to define pad/marg but still no line brk will be forced */
     padding: 10px 30px;
     font-weight: 300;
     text-decoration: none;    
@@ -199,8 +199,8 @@ input[type=submit]:active {
 /* ----------------------------------------------------- */
 
 header {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(#000)), url(img/hero.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), #000), url(img/hero.jpg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(#000)), url(img/hero-min.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), #000), url(img/hero-min.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -341,7 +341,7 @@ header {
 }
 
 .meal-photo {
-    width: 100%;   /* means has 100% width of its parent element which is "li" above;=25% */
+    width: 100%;   /* means has 100% width of its parent element which is "li" above;=25% :: this is the container for the image*/
     margin: 0;
     overflow: hidden;  /* fixes transform issue below */
     background-color: #000;
@@ -349,7 +349,7 @@ header {
 
 .meal-photo img {
     opacity: 0.7;
-    width: 100%;    /* means has 100% width of its parent element= "meal-photo" above;=25% */
+    width: 100%;    /* means has 100% width of its parent element= "meal-photo" above;=25% :: want the photo 100% filling its container at all times*/
     height: auto;
     -webkit-transform: scale(1.15);
     transform: scale(1.15); /* will make image 115%, its actually going out of browser/container */
@@ -361,7 +361,7 @@ header {
 
 .meal-photo img:hover {
     -webkit-transform: scale(1.03);
-    transform: scale(1.03);
+    transform: scale(1.03); /* we scaled to 1.03 instead of just back to 1.0 bc for some reason there was white space gap at btm of pics */
     opacity: 1;
 }
 
@@ -399,7 +399,7 @@ header {
 .works-step div {
     color: #e67e22;
     border: 2px solid #e67e22;
-    display: inline-block;   /* will make sure number doesnt force line break and sidexside w txt*/
+    display: inline-block;   /* will make sure number doesnt force line break and number will be sidexside w txt :: once add float to text it will work 6 lines down */
     border-radius: 50%;
     height: 55px;
     width: 55px;
@@ -445,9 +445,9 @@ header {
 /* ----------------------------------------------------- */
 
 .section-testimonials {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/back-customers.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);   /*add 80% transp. to pic overlay will look darker then. */
-    background-size: cover;   /*do with images*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/back-customers-min.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers-min.jpg);   /*add 80% transp. to pic overlay will look darker then. */
+    background-size: cover;   /*do with images will fill whole background of page or section*/
     color: #fff;
     background-attachment: fixed;  /*bkgrnd image stays in place and site scrolls over it effect*/
     
@@ -463,11 +463,11 @@ blockquote {
 
 blockquote:before {
     content: "\201c";  /* need iso in css content; https://css-tricks.com/snippets/html/glyphs/ */
-    font-size: 500%;
+    font-size: 450%;
     display: block;
     position: absolute; /* to make element absolute, parent must be relative position: blockquote...  */
     top: -5px;
-    left: -5px;   
+    left: -8px;   
 }
 
 cite {
@@ -497,7 +497,7 @@ cite img {
     width: 90%;
     margin-left: 5%;  /* 1/2 of remaining 10% from the already taken 90%, will center it */
     -webkit-box-shadow: 0 2px 2px #efefef;
-    box-shadow: 0 2px 2px #efefef;    /* values = (x, y, blue, color) */ 
+    box-shadow: 0 2px 2px #efefef;    /* values = (x-axis offset, y-axis offset, blur, color) */ 
 }
 
 .plan-box div {
